@@ -152,3 +152,37 @@
     0 10px 25px rgba(15, 23, 42, 0.9),
     0 0 0 1px rgba(234, 179, 8, 0.9);
 }
+.bgm-button {
+  position: fixed;
+  right: 5vw;
+  bottom: 4vh;
+  z-index: 30;
+
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+
+  background: rgba(15, 23, 42, 0.88);
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.9),
+    0 14px 40px rgba(15, 23, 42, 0.95);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bgm-button:hover {
+  background: rgba(30, 64, 175, 0.96);
+  border-color: #facc15;
+  box-shadow:
+    0 0 0 1px rgba(250, 204, 21, 0.7),
+    0 18px 48px rgba(15, 23, 42, 0.98);
+}
