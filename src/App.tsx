@@ -53,11 +53,8 @@ const BgmControl = () => {
   const [playing, setPlaying] = useState(false);
   const [autoTried, setAutoTried] = useState(false);
 
-  // 保证在 /zai/ 这种子路径下也能找到 bgm.mp3
-  const src = useMemo(
-    () => `${import.meta.env.BASE_URL}bgm.flac`,
-    []
-  );
+  // 相对路径，两边都能用
+  const src = "bgm.flac";
 
   // 第一次挂载时，尝试自动播放
   useEffect(() => {
@@ -78,7 +75,7 @@ const BgmControl = () => {
       });
   }, []);
 
-  // 如果自动播放失败：监听“第一次用户交互”，再强制播放一次
+  // 如果自动播放失败：监听“第一次用户交互”，再强制播一次
   useEffect(() => {
     if (!autoTried || playing) return;
 
@@ -90,7 +87,6 @@ const BgmControl = () => {
         .play()
         .then(() => {
           setPlaying(true);
-          // 成功后解绑监听
           window.removeEventListener("pointerdown", handler);
           window.removeEventListener("keydown", handler);
         })
@@ -127,18 +123,14 @@ const BgmControl = () => {
 
   return (
     <>
-      <audio
-        ref={audioRef}
-        src={src}
-        loop
-        preload="auto"
-      />
+      <audio ref={audioRef} src={src} loop preload="auto" />
       <button className="bgm-button" onClick={togglePlay}>
         {playing ? "⏸ BGM" : "▶ BGM"}
       </button>
     </>
   );
 };
+
 
 function App() {
   return (
