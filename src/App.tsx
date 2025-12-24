@@ -54,7 +54,7 @@ const BgmControl = () => {
   const [autoTried, setAutoTried] = useState(false);
 
   // 相对路径，两边都能用
-  const src = "bgm.ogg";
+  const src = "bgm.mp3";
 
   // 第一次挂载时，尝试自动播放
   useEffect(() => {
